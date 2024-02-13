@@ -1,4 +1,4 @@
-import { Context } from "@netlify/edge-functions";
+import { Context, Config } from "@netlify/edge-functions";
 
 const pickHeaders = (headers: Headers, keys: (string | RegExp)[]): Headers => {
   const picked = new Headers();
@@ -83,3 +83,7 @@ export default async (request: Request, context: Context) => {
     status: response.status
   });
 };
+
+export const config: Config = {
+  path: "/*"
+}
